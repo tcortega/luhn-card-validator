@@ -17,7 +17,7 @@ def is_valid_card_number(card):
 
 def find_card_provider(card):
     card_length = len(card)
-    if card_length in [13, 16] and card.startswith('4'):
+    if card_length in [13, 16] and card[0] == '4':
         return 'VISA\n'
 
     first_two_digits = int(card[:2])
@@ -38,6 +38,7 @@ if __name__ == '__main__':
 
         if not is_valid_card_number(card_input):
             print('INVÁLIDO\n')
+            break
 
         provider = find_card_provider(card_input)
         print(provider)
